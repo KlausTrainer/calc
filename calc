@@ -1,0 +1,17 @@
+#!/bin/sh
+
+VERSION_NUMBER="0.1.0"
+PROJECT_DIR=$(dirname $0)
+
+cd $PROJECT_DIR
+
+README="./README.md"
+JAR_FILE="./target/calc-$VERSION_NUMBER-standalone.jar"
+
+if [ ! -f $JAR_FILE ]; then
+    echo "The project has to be built first."
+    echo "Please see $README for build instructions and more."
+    exit 1
+fi
+
+java -jar $JAR_FILE
